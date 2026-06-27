@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
 import FoodGrid from '../components/FoodGrid';
+import { API_BASE_URL } from '../config';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,7 +28,7 @@ export default function Home() {
       setIsError(false);
       try {
         const response = await fetch(
-          `/api/meals?s=${encodeURIComponent(debouncedQuery)}`
+          `${API_BASE_URL}/api/meals?s=${encodeURIComponent(debouncedQuery)}`
         );
         if (!response.ok) {
           throw new Error('Backend server response error');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Trash2, Plus, Minus, ShoppingBag, Wallet, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE_URL } from '../config';
 
 export default function CartDrawer({ isOpen, onClose }) {
   const { cartItems, removeFromCart, updateQuantity, clearCart, cartTotal, cartCount } = useCart();
@@ -36,7 +37,7 @@ export default function CartDrawer({ isOpen, onClose }) {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/orders', {
+      const response = await fetch(`${API_BASE_URL}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

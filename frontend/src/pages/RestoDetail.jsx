@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Star, MapPin, ArrowLeft, Utensils } from 'lucide-react';
 import FoodGrid from '../components/FoodGrid';
+import { API_BASE_URL } from '../config';
 
 export default function RestoDetail() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ export default function RestoDetail() {
       setIsLoadingResto(true);
       setIsError(false);
       try {
-        const response = await fetch(`/api/restaurants/${id}`);
+        const response = await fetch(`${API_BASE_URL}/api/restaurants/${id}`);
         if (!response.ok) {
           throw new Error('Gagal memuat profil kantin');
         }
@@ -38,7 +39,7 @@ export default function RestoDetail() {
     async function fetchRestoMeals() {
       setIsLoadingMeals(true);
       try {
-        const response = await fetch(`/api/restaurants/${id}/meals`);
+        const response = await fetch(`${API_BASE_URL}/api/restaurants/${id}/meals`);
         if (!response.ok) {
           throw new Error('Gagal memuat menu kantin');
         }

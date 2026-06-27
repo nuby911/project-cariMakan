@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Star, ShoppingCart, Play, Globe, Tag, MapPin } from 'lucide-react';
 import { useCart, getSimulatedPrice } from '../context/CartContext';
 import { getCanteenByArea } from '../components/FoodCard';
+import { API_BASE_URL } from '../config';
 
 export default function FoodDetail() {
   const { id } = useParams();
@@ -18,7 +19,7 @@ export default function FoodDetail() {
       setIsLoading(true);
       setIsError(false);
       try {
-        const response = await fetch(`/api/meals/${id}`);
+        const response = await fetch(`${API_BASE_URL}/api/meals/${id}`);
         if (!response.ok) {
           throw new Error('Backend server detail error');
         }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, MapPin, ArrowRight, Utensils } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 export default function RestoList() {
   const [restaurants, setRestaurants] = useState([]);
@@ -12,7 +13,7 @@ export default function RestoList() {
       setIsLoading(true);
       setIsError(false);
       try {
-        const response = await fetch('/api/restaurants');
+        const response = await fetch(`${API_BASE_URL}/api/restaurants`);
         if (!response.ok) {
           throw new Error('Gagal mengambil daftar kantin');
         }
