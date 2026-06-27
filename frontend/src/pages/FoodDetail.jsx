@@ -221,10 +221,10 @@ export default function FoodDetail() {
             {ingredients.map((ing) => (
               <div
                 key={ing.id}
-                className="flex items-center justify-between p-3 rounded-xl border border-slate-50 bg-slate-50/50 text-xs text-slate-705 font-medium"
+                className="flex items-start justify-between gap-3 p-3 rounded-xl border border-slate-50 bg-slate-50/50 text-xs text-slate-700 font-medium"
               >
-                <span className="truncate pr-2">{ing.name}</span>
-                <span className="font-bold text-slate-500 flex-shrink-0">{ing.measure}</span>
+                <span className="break-words leading-relaxed pr-1">{ing.name}</span>
+                <span className="font-bold text-slate-500 flex-shrink-0 text-right max-w-[40%] break-words leading-relaxed">{ing.measure}</span>
               </div>
             ))}
           </div>
