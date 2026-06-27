@@ -17,7 +17,7 @@ export default function RestoDetail() {
       setIsLoadingResto(true);
       setIsError(false);
       try {
-        const response = await fetch(`http://localhost:5000/api/restaurants/${id}`);
+        const response = await fetch(`/api/restaurants/${id}`);
         if (!response.ok) {
           throw new Error('Gagal memuat profil kantin');
         }
@@ -38,7 +38,7 @@ export default function RestoDetail() {
     async function fetchRestoMeals() {
       setIsLoadingMeals(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/restaurants/${id}/meals`);
+        const response = await fetch(`/api/restaurants/${id}/meals`);
         if (!response.ok) {
           throw new Error('Gagal memuat menu kantin');
         }

@@ -18,7 +18,7 @@ export default function FoodDetail() {
       setIsLoading(true);
       setIsError(false);
       try {
-        const response = await fetch(`http://localhost:5000/api/meals/${id}`);
+        const response = await fetch(`/api/meals/${id}`);
         if (!response.ok) {
           throw new Error('Backend server detail error');
         }

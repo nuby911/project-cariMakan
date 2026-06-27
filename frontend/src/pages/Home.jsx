@@ -27,7 +27,7 @@ export default function Home() {
       setIsError(false);
       try {
         const response = await fetch(
-          `http://localhost:5000/api/meals?s=${encodeURIComponent(debouncedQuery)}`
+          `/api/meals?s=${encodeURIComponent(debouncedQuery)}`
         );
         if (!response.ok) {
           throw new Error('Backend server response error');

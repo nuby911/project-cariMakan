@@ -12,7 +12,7 @@ export default function RestoList() {
       setIsLoading(true);
       setIsError(false);
       try {
-        const response = await fetch('http://localhost:5000/api/restaurants');
+        const response = await fetch('/api/restaurants');
         if (!response.ok) {
           throw new Error('Gagal mengambil daftar kantin');
         }

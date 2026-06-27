@@ -308,6 +308,10 @@ app.get('/api/restaurants/:id/meals', async (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-  console.log(`[CariMakan API Server] Running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[CariMakan API Server] Running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
