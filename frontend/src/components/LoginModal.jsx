@@ -49,6 +49,7 @@ export default function LoginModal({ isOpen, onClose }) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-50 rounded-xl transition-colors active:scale-90"
+          aria-label="Tutup modal"
         >
           <X className="w-5 h-5" />
         </button>
@@ -59,7 +60,7 @@ export default function LoginModal({ isOpen, onClose }) {
             <img src="/logo.png" alt="Logo" className="w-10 h-10 object-contain" />
           </div>
           <h2 className="font-extrabold text-lg text-slate-900">Masuk Akun Mahasiswa</h2>
-          <p className="text-xs text-slate-505">
+          <p className="text-xs text-slate-555">
             Gunakan Nama Lengkap dan NPM Anda untuk mengakses pemesanan makanan kantin.
           </p>
         </div>
@@ -69,9 +70,10 @@ export default function LoginModal({ isOpen, onClose }) {
           
           {/* Form input: Nama */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nama Lengkap</label>
+            <label htmlFor="nama" className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Nama Lengkap</label>
             <div className="relative flex items-center bg-slate-50 border border-slate-200 focus-within:border-blue-500 focus-within:bg-white rounded-xl transition-all">
               <input
+                id="nama"
                 type="text"
                 value={nama}
                 onChange={(e) => setNama(e.target.value)}
@@ -85,9 +87,10 @@ export default function LoginModal({ isOpen, onClose }) {
 
           {/* Form input: NPM */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">NPM (Nomor Pokok Mahasiswa)</label>
+            <label htmlFor="npm" className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">NPM (Nomor Pokok Mahasiswa)</label>
             <div className="relative flex items-center bg-slate-50 border border-slate-200 focus-within:border-blue-500 focus-within:bg-white rounded-xl transition-all">
               <input
+                id="npm"
                 type="text"
                 value={npm}
                 onChange={(e) => setNpm(e.target.value)}

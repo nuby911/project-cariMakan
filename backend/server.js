@@ -22,7 +22,7 @@ const RESTAURANTS = [
     location: 'Belakang Gedung QB',
     areas: ['Italian', 'French', 'American'],
     description: 'Menyajikan pasta lezat, hidangan barat panggang, burger premium, dan pastry buatan Bunda Arxel.',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&auto=format&fit=crop&q=60',
+    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&auto=format&fit=crop&q=60&fm=webp',
     rating: 4.8
   },
   {
@@ -31,7 +31,7 @@ const RESTAURANTS = [
     location: 'Belakang Gedung QB',
     areas: ['Indonesian', 'Malaysian'],
     description: 'Menu legendaris masakan rumahan khas Emak mulai dari nasi rames hangat, soto gurih, hingga sambal lalapan.',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&auto=format&fit=crop&q=60&fm=webp',
     rating: 4.7
   },
   {
@@ -40,7 +40,7 @@ const RESTAURANTS = [
     location: 'Depan Gedung KHD',
     areas: ['Japanese', 'Chinese', 'Thai'],
     description: 'Spesialis kuliner Asia dengan menu mie ramen hangat, dimsum kukus, tumisan wok pan, dan sup asam pedas.',
-    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500&auto=format&fit=crop&q=60',
+    image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&auto=format&fit=crop&q=60&fm=webp',
     rating: 4.6
   },
   {
@@ -49,7 +49,7 @@ const RESTAURANTS = [
     location: 'Samping Gedung GSG',
     areas: ['Turkish', 'Moroccan', 'Mexican', 'Spanish', 'Indian'],
     description: 'Pusat kuliner serba ada di samping GSG. Menyajikan kebab renyah, taco, quesadilla, dan kari kaya rempah.',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60',
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop&q=60&fm=webp',
     rating: 4.5
   }
 ];

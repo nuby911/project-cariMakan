@@ -16,6 +16,7 @@ export default function SearchBar({ value, onChange, onClear }) {
             onChange={(e) => onChange(e.target.value)}
             placeholder="Cari makanan favoritmu..."
             className="w-full bg-transparent text-slate-800 placeholder-slate-400 focus:outline-none text-sm font-medium pr-2"
+            aria-label="Cari makanan favoritmu"
           />
 
           {value && (

@@ -44,6 +44,8 @@ export default function Header({ onCartClick, onLoginClick }) {
               <img 
                 src="/logo.png" 
                 alt="CariMakan Logo" 
+                width={150}
+                height={44}
                 className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]" 
               />
             </Link>

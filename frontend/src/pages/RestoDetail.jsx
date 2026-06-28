@@ -103,8 +103,10 @@ export default function RestoDetail() {
         {/* Cover image */}
         <div className="md:w-2/5 aspect-[16/10] md:aspect-auto relative bg-slate-100 overflow-hidden">
           <img
-            src={restaurant.image}
+            src={restaurant.image ? restaurant.image.replace('w=500', 'w=800&fm=webp') : ''}
             alt={restaurant.name}
+            width={800}
+            height={500}
             className="w-full h-full object-cover"
           />
         </div>

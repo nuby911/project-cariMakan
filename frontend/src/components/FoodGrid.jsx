@@ -19,11 +19,14 @@ export default function FoodGrid({ meals, isLoading, isError }) {
   useEffect(() => {
     const defaultMobile = 20;
     const defaultDesktop = 30;
-    if (isDesktop && visibleCount === defaultMobile) {
-      setVisibleCount(defaultDesktop);
-    } else if (!isDesktop && visibleCount === defaultDesktop) {
-      setVisibleCount(defaultMobile);
-    }
+    setVisibleCount((prev) => {
+      if (isDesktop && prev === defaultMobile) {
+        return defaultDesktop;
+      } else if (!isDesktop && prev === defaultDesktop) {
+        return defaultMobile;
+      }
+      return prev;
+    });
   }, [isDesktop]);
 
   // Reset limit when meals data changes (new searches or changing canteens)

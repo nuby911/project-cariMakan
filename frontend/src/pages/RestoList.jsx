@@ -95,6 +95,8 @@ export default function RestoList() {
                 <img 
                   src={resto.image} 
                   alt={resto.name}
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   loading="lazy"
                 />

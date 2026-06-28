@@ -111,7 +111,7 @@ export default function CartDrawer({ isOpen, onClose }) {
           <button
             onClick={closeAndReset}
             className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-50 rounded-xl transition-colors active:scale-90"
-            aria-label="Close Cart"
+            aria-label="Tutup keranjang"
           >
             <X className="w-5 h-5" />
           </button>
@@ -176,6 +176,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                       <button
                         onClick={() => updateQuantity(item.idMeal, item.quantity - 1)}
                         className="p-1.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-500 hover:text-slate-800 transition-colors"
+                        aria-label="Kurangi kuantitas"
                       >
                         <Minus className="w-3 h-3" />
                       </button>
@@ -185,6 +186,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                       <button
                         onClick={() => updateQuantity(item.idMeal, item.quantity + 1)}
                         className="p-1.5 bg-white hover:bg-slate-100 border border-slate-200 rounded-lg text-slate-500 hover:text-slate-800 transition-colors"
+                        aria-label="Tambah kuantitas"
                       >
                         <Plus className="w-3 h-3" />
                       </button>
@@ -196,6 +198,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                     onClick={() => removeFromCart(item.idMeal)}
                     className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors ml-auto"
                     title="Hapus"
+                    aria-label="Hapus dari keranjang"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

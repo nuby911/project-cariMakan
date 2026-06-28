@@ -133,6 +133,8 @@ export default function FoodDetail() {
           <img
             src={meal.strMealThumb}
             alt={meal.strMeal}
+            width={640}
+            height={480}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
