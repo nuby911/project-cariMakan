@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FoodCard from './FoodCard';
-import { AlertTriangle, SearchX } from 'lucide-react';
+import { AlertTriangle, SearchX, ChevronDown } from 'lucide-react';
 
 export default function FoodGrid({ meals, isLoading, isError }) {
-  
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [visibleCount, setVisibleCount] = useState(window.innerWidth >= 768 ? 30 : 20);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const desktop = window.innerWidth >= 768;
+      setIsDesktop(desktop);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Sync visibleCount with screen size adjustments when the user has not loaded more yet
+  useEffect(() => {
+    const defaultMobile = 20;
+    const defaultDesktop = 30;
+    if (isDesktop && visibleCount === defaultMobile) {
+      setVisibleCount(defaultDesktop);
+    } else if (!isDesktop && visibleCount === defaultDesktop) {
+      setVisibleCount(defaultMobile);
+    }
+  }, [isDesktop]);
+
+  // Reset limit when meals data changes (new searches or changing canteens)
+  useEffect(() => {
+    setVisibleCount(isDesktop ? 30 : 20);
+  }, [meals, isDesktop]);
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + (isDesktop ? 30 : 20));
+  };
+
   // Render skeleton loading cards in Light Theme
   if (isLoading) {
     return (
@@ -66,12 +97,30 @@ export default function FoodGrid({ meals, isLoading, isError }) {
     );
   }
 
+  const visibleMeals = meals.slice(0, visibleCount);
+  const hasMore = meals.length > visibleCount;
+
   // Render content
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4">
-      {meals.map((meal) => (
-        <FoodCard key={meal.idMeal} meal={meal} />
-      ))}
+    <div className="space-y-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6 px-2 sm:px-4">
+        {visibleMeals.map((meal) => (
+          <FoodCard key={meal.idMeal} meal={meal} />
+        ))}
+      </div>
+      
+      {hasMore && (
+        <div className="flex justify-center pt-4 pb-8">
+          <button
+            onClick={handleShowMore}
+            className="flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-500 hover:bg-slate-50 transition-all duration-300 font-extrabold text-sm rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] group"
+          >
+            <span>Tampilkan Lebih Banyak</span>
+            <ChevronDown className="w-4 h-4 text-slate-400 group-hover:text-blue-500 group-hover:translate-y-0.5 transition-all" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
+
